@@ -18,6 +18,22 @@
   max-width: 740px;
 }
 
+.landing-hero__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(197, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
 .landing-hero__eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.32em;
