@@ -1,0 +1,16 @@
+{{ 'react-gallery/react-gallery.css' | asset_url | stylesheet_tag }}
+
+<section class="react-gallery-hero" data-section-id="{{ section.id }}">
+  <div id="react-gallery-root" class="react-gallery-root"></div>
+</section>
+
+<script type="module" src="{{ 'react-gallery/react-gallery.js' | asset_url }}"></script>
+
+{% schema %}
+{
+  "name": "Hero 3D React Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

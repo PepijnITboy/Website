@@ -1,5 +1,9 @@
 {
   "sections": {
+    "hero_3d_react": {
+      "type": "hero-3d-react",
+      "settings": {}
+    },
     "hero_gallery": {
       "type": "hero-3d-gallery",
       "settings": {
@@ -158,7 +162,7 @@
     }
   },
   "order": [
-    "hero_gallery",
+    "hero_3d_react",
     "product",
     "story",
     "ingredients",
