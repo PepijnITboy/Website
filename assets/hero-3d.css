@@ -1,7 +1,7 @@
 .landing-hero {
   position: relative;
   min-height: 100vh;
-  background: #050505;
+  background: #000000;
   overflow: hidden;
 }
 
@@ -18,38 +18,23 @@
   max-width: 740px;
 }
 
-.landing-hero__marker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  margin-bottom: 18px;
-  font-size: 0.75rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(197, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-}
-
 .landing-hero__eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: #c50000;
 }
 
 .landing-hero__title {
   font-size: clamp(3rem, 6vw, 6rem);
   line-height: 0.98;
   margin: 18px 0;
+  color: #ffffff;
 }
 
 .landing-hero__subtitle {
   font-size: clamp(1.1rem, 1.6vw, 1.6rem);
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.72);
   max-width: 560px;
 }
 
@@ -67,7 +52,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   z-index: 2;
 }
 
@@ -86,5 +71,47 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 75%);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 75%);
+}
+
+.landing-hero--gallery .landing-hero__overlay--center {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 18vh 8vw 12vh;
+  z-index: 3;
+}
+
+.landing-hero--gallery .landing-hero__title {
+  text-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+}
+
+.landing-hero--gallery .landing-hero__subtitle {
+  margin: 0 auto;
+}
+
+.landing-hero__cta--center {
+  justify-content: center;
+}
+
+.landing-hero--gallery .landing-hero__eyebrow::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: #c50000;
+}
+
+.landing-hero--gallery .landing-hero__subtitle {
+  max-width: 640px;
+}
+
+.landing-hero--gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.85) 72%);
 }

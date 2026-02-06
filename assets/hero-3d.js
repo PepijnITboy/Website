@@ -2,16 +2,16 @@
   if (!window.THREE) return;
 
   const DEFAULT_IMAGES = [
-    "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1514361892635-6a8f2c0b0d0a?auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1514361892635-6a8f2c0b0d0a?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80"
   ];
 
   const vertexShader = `
@@ -156,8 +156,8 @@
     const width = canvasHost.clientWidth;
     const height = canvasHost.clientHeight;
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 200);
-    camera.position.set(0, 0, 14);
+    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 200);
+    camera.position.set(0, 0, 12.5);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPower ? 1.2 : 2));
@@ -179,10 +179,10 @@
     let scrollProgress = 0;
     let introStart = performance.now();
 
-    const planeCount = Math.min(images.length, lowPower ? 6 : 10);
-    const depthRange = 50;
-    const maxOffsetX = lowPower ? 5 : 8;
-    const maxOffsetY = lowPower ? 4 : 8;
+    const planeCount = Math.min(images.length, lowPower ? 6 : 12);
+    const depthRange = 70;
+    const maxOffsetX = lowPower ? 4.2 : 6.5;
+    const maxOffsetY = lowPower ? 3.2 : 5.2;
 
     if (variant === "shader") {
       const geometry = new THREE.PlaneGeometry(12, 12, lowPower ? 32 : 64, lowPower ? 32 : 64);
@@ -240,7 +240,7 @@
     }
 
     const handleWheel = (event) => {
-      scrollVelocity += event.deltaY * 0.002;
+      scrollVelocity += event.deltaY * 0.0032;
       autoPlay = false;
     };
 
@@ -270,9 +270,9 @@
       requestAnimationFrame(animate);
 
       if (autoPlay && !reducedMotion) {
-        scrollVelocity += 0.003;
+        scrollVelocity += 0.006;
       }
-      scrollVelocity *= 0.96;
+      scrollVelocity *= 0.94;
 
       if (materials.length) {
         materials.forEach((material) => {
@@ -284,7 +284,7 @@
 
       if (planes.length) {
         planes.forEach((mesh, index) => {
-          let z = mesh.userData.z + scrollVelocity * 10;
+          let z = mesh.userData.z + scrollVelocity * 12;
           if (z >= depthRange) z -= depthRange;
           if (z < 0) z += depthRange;
           mesh.userData.z = z;
@@ -292,10 +292,10 @@
           mesh.position.z = worldZ;
 
           const normalized = z / depthRange;
-          const fadeIn = clamp((normalized - 0.05) / 0.15, 0, 1);
-          const fadeOut = 1 - clamp((normalized - 0.85) / 0.1, 0, 1);
+          const fadeIn = clamp((normalized - 0.02) / 0.18, 0, 1);
+          const fadeOut = 1 - clamp((normalized - 0.78) / 0.14, 0, 1);
           const opacity = clamp(Math.min(fadeIn, fadeOut), 0, 1);
-          const blur = clamp(Math.abs(normalized - 0.5 + scrollProgress * 0.15) * 6, 0, 8);
+          const blur = clamp((Math.abs(normalized - 0.5) + scrollProgress * 0.12) * 10, 0, 10);
 
           const material = materials[index];
           material.uniforms.opacity.value = opacity;
@@ -310,7 +310,7 @@
 
       const introProgress = clamp((performance.now() - introStart) / 1400, 0, 1);
       const introEase = 1 - Math.pow(1 - introProgress, 3);
-      camera.position.z = 18 - introEase * 4;
+      camera.position.z = 16 - introEase * 3.2;
 
       renderer.render(scene, camera);
     }

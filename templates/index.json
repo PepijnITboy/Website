@@ -1,18 +1,52 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-3d",
+    "hero_gallery": {
+      "type": "hero-3d-gallery",
       "settings": {
-        "hero_variant": "shader",
         "eyebrow": "Ginger.ALC",
         "heading": "The shot that keeps you balanced",
         "subheading": "Cinematic ginger shots with a refined kick. Crafted for bold nights and brighter mornings.",
         "cta_text": "Bestellen",
         "cta_link": "",
-        "secondary_text": "Ontdek het product",
-        "secondary_link": "",
-        "model_url": ""
+        "scroll_label": "Scroll to explore"
       }
+    },
+    "product": {
+      "type": "product-cta",
+      "settings": {
+        "eyebrow": "Bestel direct",
+        "heading": "Haal Ginger.ALC in huis",
+        "subheading": "Premium gembershots met een verrassende kick. Voeg je favoriete variant toe aan je winkelwagen.",
+        "cta_text": "Add to cart"
+      }
+    },
+    "story": {
+      "type": "story",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "settings": {}
+    },
+    "recipes": {
+      "type": "recipes",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "where": {
+      "type": "where-to-buy",
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {}
     },
     "custom_liquid_FDURPe": {
       "type": "custom-liquid",
@@ -124,7 +158,15 @@
     }
   },
   "order": [
-    "hero",
+    "hero_gallery",
+    "product",
+    "story",
+    "ingredients",
+    "recipes",
+    "reviews",
+    "faq",
+    "where",
+    "contact",
     "custom_liquid_FDURPe",
     "featured_collection",
     "featured_product_mDXrPa"
