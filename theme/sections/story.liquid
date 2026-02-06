@@ -1,0 +1,49 @@
+<section class="landing-section" id="verhaal">
+  <div class="landing-reveal">
+    <p class="landing-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="landing-title">{{ section.settings.heading }}</h2>
+    <div class="landing-divider"></div>
+    <p class="landing-subtitle">{{ section.settings.body }}</p>
+    <p style="margin-top: 22px; font-style: italic; color: rgba(255,255,255,0.7);">
+      “{{ section.settings.quote }}”
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Merkverhaal",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ons verhaal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Born in Amsterdam. Crafted for balance."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Ginger.ALC brengt de intensiteit van verse gember samen met een elegante alcoholische twist. Elke shot is handgemaakt, puur en gedurfd. Een minimalistische formule, maximale beleving."
+    },
+    {
+      "type": "text",
+      "id": "quote",
+      "label": "Quote",
+      "default": "The shot that keeps you balanced."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Merkverhaal"
+    }
+  ]
+}
+{% endschema %}

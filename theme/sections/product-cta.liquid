@@ -1,0 +1,101 @@
+{%- assign product = section.settings.product -%}
+<section class="landing-section landing-section--tight" id="bestel">
+  <div class="landing-reveal">
+    <p class="landing-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="landing-title">{{ section.settings.heading }}</h2>
+    <p class="landing-subtitle">{{ section.settings.subheading }}</p>
+  </div>
+
+  <div class="landing-card landing-reveal" style="margin-top: 40px;">
+    {%- if product != blank -%}
+      <div style="display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items: center;">
+        <div>
+          {%- if product.featured_image != blank -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 600 }}"
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              width="{{ product.featured_image.width }}"
+              height="{{ product.featured_image.height }}"
+              style="width: 100%; height: auto; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);"
+            >
+          {%- endif -%}
+        </div>
+        <div>
+          <h3 style="font-size: 1.6rem; margin-bottom: 10px;">{{ product.title }}</h3>
+          <p style="color: rgba(255,255,255,0.68); margin-bottom: 16px;">{{ product.description | strip_html | truncate: 180 }}</p>
+          <p style="font-size: 1.4rem; margin-bottom: 20px;">{{ product.price | money }}</p>
+
+          <form method="post" action="/cart/add">
+            {%- if product.variants.size > 1 -%}
+              <label for="VariantSelect-{{ section.id }}" style="display: block; margin-bottom: 8px;">Kies variant</label>
+              <select
+                id="VariantSelect-{{ section.id }}"
+                name="id"
+                style="width: 100%; padding: 12px 14px; border-radius: 10px; margin-bottom: 16px;"
+              >
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+                    {{ variant.title }} — {{ variant.price | money }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            {%- else -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {%- endif -%}
+            <button class="landing-button landing-button--primary" type="submit" data-magnetic>
+              {{ section.settings.cta_text }}
+            </button>
+          </form>
+        </div>
+      </div>
+    {%- else -%}
+      <p style="color: rgba(255,255,255,0.7);">
+        Koppel in de Theme Editor een product om de bestelknop te activeren.
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Bestel direct"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Haal Ginger.ALC in huis"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium gembershots met een verrassende kick. Voeg je favoriete variant toe aan je winkelwagen."
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Add to cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product CTA"
+    }
+  ]
+}
+{% endschema %}
