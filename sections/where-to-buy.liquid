@@ -1,0 +1,52 @@
+<section class="landing-section" id="waar-te-koop">
+  <div class="landing-reveal">
+    <p class="landing-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="landing-title">{{ section.settings.heading }}</h2>
+    <p class="landing-subtitle">{{ section.settings.subheading }}</p>
+  </div>
+
+  <div class="landing-grid landing-grid--3" style="margin-top: 40px;">
+    {%- for block in section.blocks -%}
+      <div class="landing-card landing-reveal" {{ block.shopify_attributes }}>
+        <h3 style="margin-bottom: 6px;">{{ block.settings.title }}</h3>
+        <p style="color: rgba(255,255,255,0.68); margin-bottom: 10px;">{{ block.settings.address }}</p>
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="landing-button landing-button--ghost">Bekijk locatie</a>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Waar te koop",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Waar te koop?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Vind Ginger.ALC in jouw stad" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Amsterdam first. More cities coming soon." }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Locatie",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Naam", "default": "Cafe de Sluyswacht" },
+        { "type": "text", "id": "address", "label": "Adres", "default": "Jodenbreestraat 1, Amsterdam" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Waar te koop",
+      "blocks": [
+        { "type": "location" },
+        { "type": "location" },
+        { "type": "location" }
+      ]
+    }
+  ]
+}
+{% endschema %}

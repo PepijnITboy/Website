@@ -1,0 +1,48 @@
+<section class="landing-section landing-faq" id="faq">
+  <div class="landing-reveal">
+    <p class="landing-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="landing-title">{{ section.settings.heading }}</h2>
+    <p class="landing-subtitle">{{ section.settings.subheading }}</p>
+  </div>
+
+  <div style="margin-top: 32px;">
+    {%- for block in section.blocks -%}
+      <details class="landing-reveal" {{ block.shopify_attributes }}>
+        <summary>{{ block.settings.question }}</summary>
+        <p>{{ block.settings.answer }}</p>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Alles wat je moet weten" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Korte antwoorden op veelgestelde vragen." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Vraag", "default": "Hoe drink ik Ginger.ALC?" },
+        { "type": "textarea", "id": "answer", "label": "Antwoord", "default": "IJskoud, in één shot of als mix met tonic." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

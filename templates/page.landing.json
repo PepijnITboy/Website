@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-3d",
+      "settings": {
+        "hero_variant": "gallery",
+        "eyebrow": "Ginger.ALC",
+        "heading": "The shot that keeps you balanced",
+        "subheading": "Cinematic ginger shots with a refined kick. Crafted for bold nights and brighter mornings.",
+        "cta_text": "Bestellen",
+        "cta_link": "",
+        "secondary_text": "Ontdek het product",
+        "secondary_link": "",
+        "model_url": ""
+      }
+    },
+    "product": {
+      "type": "product-cta",
+      "settings": {
+        "eyebrow": "Bestel direct",
+        "heading": "Haal Ginger.ALC in huis",
+        "subheading": "Premium gembershots met een verrassende kick. Voeg je favoriete variant toe aan je winkelwagen.",
+        "cta_text": "Add to cart"
+      }
+    },
+    "story": {
+      "type": "story",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "settings": {}
+    },
+    "recipes": {
+      "type": "recipes",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "where": {
+      "type": "where-to-buy",
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "product",
+    "story",
+    "ingredients",
+    "recipes",
+    "reviews",
+    "faq",
+    "where",
+    "contact"
+  ]
+}

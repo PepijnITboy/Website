@@ -1,0 +1,117 @@
+.landing-hero {
+  position: relative;
+  min-height: 100vh;
+  background: #000000;
+  overflow: hidden;
+}
+
+.landing-hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.landing-hero__overlay {
+  position: relative;
+  z-index: 2;
+  padding: 16vh 6vw;
+  max-width: 740px;
+}
+
+.landing-hero__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #c50000;
+}
+
+.landing-hero__title {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.98;
+  margin: 18px 0;
+  color: #ffffff;
+}
+
+.landing-hero__subtitle {
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 560px;
+}
+
+.landing-hero__cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.landing-hero__scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 6vw;
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 2;
+}
+
+.landing-hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.landing-hero__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 75%);
+}
+
+.landing-hero--gallery .landing-hero__overlay--center {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 18vh 8vw 12vh;
+  z-index: 3;
+}
+
+.landing-hero--gallery .landing-hero__title {
+  text-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+}
+
+.landing-hero--gallery .landing-hero__subtitle {
+  margin: 0 auto;
+}
+
+.landing-hero__cta--center {
+  justify-content: center;
+}
+
+.landing-hero--gallery .landing-hero__eyebrow::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: #c50000;
+}
+
+.landing-hero--gallery .landing-hero__subtitle {
+  max-width: 640px;
+}
+
+.landing-hero--gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.85) 72%);
+}

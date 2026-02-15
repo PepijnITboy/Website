@@ -1,0 +1,198 @@
+{{ 'landing.css' | asset_url | stylesheet_tag }}
+{{ 'hero-3d.css' | asset_url | stylesheet_tag }}
+
+{%- assign image_urls = "" -%}
+{%- for i in (1..10) -%}
+  {%- assign key = "hero_image_" | append: i -%}
+  {%- assign img = section.settings[key] -%}
+  {%- if img != blank -%}
+    {%- assign url = img | image_url: width: 1600 -%}
+    {%- if image_urls != "" -%}
+      {%- assign image_urls = image_urls | append: "," -%}
+    {%- endif -%}
+    {%- assign image_urls = image_urls | append: '"' | append: url | append: '"' -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<section
+  class="landing-hero"
+  data-landing-page
+  data-hero
+  data-hero-variant="{{ section.settings.hero_variant }}"
+  data-model-url="{{ section.settings.model_url }}"
+  data-images='[{{ image_urls }}]'
+>
+  <div class="landing-hero__canvas" data-hero-canvas></div>
+
+  <div class="landing-hero__overlay landing-reveal">
+    <p class="landing-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="landing-hero__title">{{ section.settings.heading }}</h1>
+    <p class="landing-hero__subtitle">{{ section.settings.subheading }}</p>
+    <div class="landing-hero__cta">
+      <a
+        class="landing-button landing-button--primary"
+        href="{{ section.settings.cta_link }}"
+        data-magnetic
+      >
+        {{ section.settings.cta_text }}
+      </a>
+      {%- if section.settings.secondary_link != blank -%}
+        <a class="landing-button landing-button--ghost" href="{{ section.settings.secondary_link }}">
+          {{ section.settings.secondary_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="landing-hero__scroll">Scroll</div>
+  <div class="landing-hero__vignette"></div>
+  <div class="landing-hero__grain"></div>
+  <div class="landing-ambient">
+    <span></span>
+    <span></span>
+  </div>
+
+  {%- if section.settings.poster_image != blank -%}
+    <noscript>
+      <img
+        src="{{ section.settings.poster_image | image_url: width: 1600 }}"
+        alt="Hero poster"
+        style="width: 100%; height: auto;"
+      >
+    </noscript>
+  {%- endif -%}
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js" defer></script>
+{{ 'hero-3d.js' | asset_url | script_tag }}
+{{ 'landing.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Hero 3D Landing",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "hero_variant",
+      "label": "Hero variant",
+      "default": "gallery",
+      "options": [
+        { "value": "gallery", "label": "3D Gallery" },
+        { "value": "shader", "label": "Shader Red/White" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ginger.ALC"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The shot that keeps you balanced"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Cinematic ginger shots with a refined kick. Crafted for bold nights and brighter mornings."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Primary CTA text",
+      "default": "Bestellen"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_text",
+      "label": "Secondary CTA text",
+      "default": "Ontdek het product"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary CTA link"
+    },
+    {
+      "type": "url",
+      "id": "model_url",
+      "label": "Bottle GLB URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Poster image (fallback)"
+    },
+    {
+      "type": "header",
+      "content": "Hero images (10)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_1",
+      "label": "Hero image 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_2",
+      "label": "Hero image 02"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_3",
+      "label": "Hero image 03"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_4",
+      "label": "Hero image 04"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_5",
+      "label": "Hero image 05"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_6",
+      "label": "Hero image 06"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_7",
+      "label": "Hero image 07"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_8",
+      "label": "Hero image 08"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_9",
+      "label": "Hero image 09"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_10",
+      "label": "Hero image 10"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero 3D Landing"
+    }
+  ]
+}
+{% endschema %}

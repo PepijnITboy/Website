@@ -1,0 +1,36 @@
+<section class="landing-section" id="contact">
+  <div class="landing-reveal">
+    <p class="landing-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="landing-title">{{ section.settings.heading }}</h2>
+    <p class="landing-subtitle">{{ section.settings.subheading }}</p>
+  </div>
+
+  <div class="landing-footer-cta landing-reveal" style="margin-top: 32px;">
+    <p style="color: rgba(255,255,255,0.68);">{{ section.settings.body }}</p>
+    <div>
+      <a class="landing-button landing-button--primary" href="{{ section.settings.cta_link }}" data-magnetic>
+        {{ section.settings.cta_text }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Contact" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Let’s connect" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Samenwerken of stocken? We horen graag van je." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Stuur ons een bericht en we reageren snel." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Mail ons" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "presets": [
+    {
+      "name": "Contact"
+    }
+  ]
+}
+{% endschema %}
