@@ -1,5 +1,5 @@
 <section class="ga-page" aria-label="Ginger ALC one pager">
-  <header class="ga-topbar reveal" data-reveal>
+  <header class="ga-topbar ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-topbar-inner">
       <a class="ga-brand" href="#top" aria-label="Naar boven">Ginger.ALC</a>
       <nav class="ga-nav" aria-label="Hoofdnavigatie">
@@ -15,12 +15,12 @@
 
   <div id="top"></div>
 
-  <section class="ga-hero ga-section reveal" data-reveal>
+  <section class="ga-hero ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-hero-grid">
-      <div class="ga-hero-copy">
+      <div class="ga-hero-copy ga-motion-slide-left" data-reveal>
+        <p class="ga-tagline">{{ section.settings.hero_tagline | escape }}</p>
         <h1>Ginger.ALC</h1>
         <p class="ga-subheadline">De gembershot met een subtiele, speelse kick.</p>
-        <p class="ga-tagline">{{ section.settings.hero_tagline | escape }}</p>
         <p class="ga-microcopy">Vrijdag &amp; zaterdag bezorgd in Amsterdam • De hele week per post door NL.</p>
         <div class="ga-cta-row">
           <a class="ga-btn ga-btn-primary" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bestel</a>
@@ -28,34 +28,38 @@
           <a class="ga-btn ga-btn-tertiary" href="#partnerships">Partnerships</a>
         </div>
       </div>
-      <div class="ga-hero-media">
+      <div class="ga-hero-media ga-motion-slide-right" data-reveal>
         {% if section.settings.hero_image != blank %}
-          {{ section.settings.hero_image | image_url: width: 1600 | image_tag: class: 'ga-media', loading: 'eager', alt: section.settings.hero_image_alt }}
+          <div class="ga-media-frame">
+            {{ section.settings.hero_image | image_url: width: 1800 | image_tag: class: 'ga-media', loading: 'eager', alt: section.settings.hero_image_alt, data-parallax: '0.08' }}
+          </div>
         {% else %}
-          <div class="ga-placeholder" role="img" aria-label="Hero productfoto placeholder">
-            <span>Placeholder: Hero productfoto</span>
+          <div class="ga-media-frame">
+            <div class="ga-placeholder" role="img" aria-label="Hero productfoto placeholder">
+              <span>Placeholder: Hero productfoto (hoog contrast productshot)</span>
+            </div>
           </div>
         {% endif %}
       </div>
     </div>
   </section>
 
-  <section id="product" class="ga-section reveal" data-reveal>
+  <section id="product" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container">
       <h2>Waarom Ginger.ALC</h2>
       <div class="ga-card-grid ga-card-grid-4">
-        <article class="ga-card"><p>Handgemaakt in Nederland</p></article>
-        <article class="ga-card"><p>Echte, versgeperste fruitsappen</p></article>
-        <article class="ga-card"><p>Pure gemberkick — fris en scherp</p></article>
-        <article class="ga-card"><p>Subtiel alcoholisch, fruitige afdronk</p></article>
+        <article class="ga-card ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:0"><p>Handgemaakt in Nederland</p></article>
+        <article class="ga-card ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:1"><p>Echte, versgeperste fruitsappen</p></article>
+        <article class="ga-card ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:2"><p>Pure gemberkick — fris en scherp</p></article>
+        <article class="ga-card ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:3"><p>Subtiel alcoholisch, fruitige afdronk</p></article>
       </div>
       <p class="ga-tip">Drink 'm ijskoud.</p>
     </div>
   </section>
 
-  <section class="ga-section reveal" data-reveal>
+  <section class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-split">
-      <div>
+      <div class="ga-motion-slide-left" data-reveal>
         <h2>Het product</h2>
         <p class="ga-story">
           Met de hand vervaardigd in Nederland van echte, versgeperste fruitsappen.
@@ -64,24 +68,28 @@
           Zonder kunstmatige aroma's.
         </p>
       </div>
-      <div>
+      <div class="ga-motion-slide-right" data-reveal>
         {% if section.settings.detail_image != blank %}
-          {{ section.settings.detail_image | image_url: width: 1200 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.detail_image_alt }}
+          <div class="ga-media-frame">
+            {{ section.settings.detail_image | image_url: width: 1400 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.detail_image_alt, data-parallax: '0.06' }}
+          </div>
         {% else %}
-          <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Detailfoto placeholder">
-            <span>Placeholder: Detailfoto</span>
+          <div class="ga-media-frame">
+            <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Detailfoto placeholder">
+              <span>Placeholder: Detailfoto (texture/close-up)</span>
+            </div>
           </div>
         {% endif %}
       </div>
     </div>
   </section>
 
-  <section id="recepten" class="ga-section reveal" data-reveal>
+  <section id="recepten" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container">
       <h2>Recepten</h2>
       <p class="ga-section-intro">Twee manieren om 'm te drinken.</p>
       <div class="ga-card-grid ga-card-grid-2">
-        <article class="ga-card ga-card-recipe">
+        <article class="ga-card ga-card-recipe ga-motion-scale" data-reveal data-stagger style="--stagger-index:0">
           <h3>Ginger.ALC Spritz</h3>
           <ul>
             <li>90 ml prosecco</li>
@@ -90,7 +98,7 @@
           </ul>
           <p>Fris, kruidig en net anders.</p>
         </article>
-        <article class="ga-card ga-card-recipe">
+        <article class="ga-card ga-card-recipe ga-motion-scale" data-reveal data-stagger style="--stagger-index:1">
           <h3>Ginger.ALC Shot</h3>
           <p>Puur, ijskoud — of als start voor nieuwe combinaties.</p>
         </article>
@@ -98,31 +106,31 @@
     </div>
   </section>
 
-  <section id="waar-te-koop" class="ga-section reveal" data-reveal>
+  <section id="waar-te-koop" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container">
       <h2>Waar te koop</h2>
       <div class="ga-card-grid ga-card-grid-3">
-        <article class="ga-card ga-card-location">
+        <article class="ga-card ga-card-location ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:0">
           <h3>Cafe de Sluyswacht</h3>
           <p>Jodenbreestraat 1, Amsterdam</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Cafe+de+Sluyswacht+Jodenbreestraat+1+Amsterdam" target="_blank" rel="noopener">Route</a>
         </article>
-        <article class="ga-card ga-card-location">
+        <article class="ga-card ga-card-location ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:1">
           <h3>Cafe Arie</h3>
           <p>Ferdinand Bolstraat 24HS, Amsterdam</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Arie+Ferdinand+Bolstraat+24HS+Amsterdam" target="_blank" rel="noopener">Route</a>
         </article>
-        <article class="ga-card ga-card-location">
+        <article class="ga-card ga-card-location ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:2">
           <h3>Bar DO</h3>
           <p>Vijzelgracht 35, Amsterdam</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Bar+DO+Vijzelgracht+35+Amsterdam" target="_blank" rel="noopener">Route</a>
         </article>
-        <article class="ga-card ga-card-location">
+        <article class="ga-card ga-card-location ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:3">
           <h3>Sarphaat</h3>
           <p>Ceintuurbaan 157, Amsterdam</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Sarphaat+Ceintuurbaan+157+Amsterdam" target="_blank" rel="noopener">Route</a>
         </article>
-        <article class="ga-card ga-card-location">
+        <article class="ga-card ga-card-location ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:4">
           <h3>Cafe de Schinkelhaven</h3>
           <p>Amstelveenseweg 126, Amsterdam</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Cafe+de+Schinkelhaven+Amstelveenseweg+126+Amsterdam" target="_blank" rel="noopener">Route</a>
@@ -131,26 +139,26 @@
     </div>
   </section>
 
-  <section id="bestellen" class="ga-section reveal" data-reveal>
+  <section id="bestellen" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container">
       <h2>Bestellen</h2>
       <div class="ga-card-grid ga-card-grid-4">
-        <article class="ga-card ga-card-package">
+        <article class="ga-card ga-card-package ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:0">
           <h3>Starter Pack</h3>
           <p>Perfect om kennis te maken met Ginger.ALC.</p>
           <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
         </article>
-        <article class="ga-card ga-card-package">
+        <article class="ga-card ga-card-package ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:1">
           <h3>Weekend Pack</h3>
           <p>Voor borrelmomenten met meerdere glazen.</p>
           <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
         </article>
-        <article class="ga-card ga-card-package">
+        <article class="ga-card ga-card-package ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:2">
           <h3>House Pack</h3>
           <p>Steady voorraad voor thuis of op werk.</p>
           <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
         </article>
-        <article class="ga-card ga-card-package">
+        <article class="ga-card ga-card-package ga-motion-fade-up" data-reveal data-stagger style="--stagger-index:3">
           <h3>Gift Pack</h3>
           <p>Strakke selectie om te geven of te delen.</p>
           <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
@@ -159,7 +167,7 @@
     </div>
   </section>
 
-  <section id="partnerships" class="ga-section reveal" data-reveal>
+  <section id="partnerships" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-partnerships">
       <h2>Partnerships</h2>
       <p>
@@ -171,23 +179,27 @@
         <li>Snelle afstemming en levering</li>
         <li>Proef/sample op aanvraag</li>
       </ul>
-      <div class="ga-cta-row">
+      <div class="ga-cta-row ga-motion-fade-up" data-reveal>
         <a class="ga-btn ga-btn-primary" href="#contact">Neem contact op</a>
         <a class="ga-btn ga-btn-secondary" href="mailto:pepijn@gingeralc.nl">Mail partnerships</a>
       </div>
       {% if section.settings.ambient_image != blank %}
-        <div class="ga-partnership-image">
-          {{ section.settings.ambient_image | image_url: width: 1200 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.ambient_image_alt }}
+        <div class="ga-partnership-image ga-motion-scale" data-reveal>
+          <div class="ga-media-frame">
+            {{ section.settings.ambient_image | image_url: width: 1400 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.ambient_image_alt, data-parallax: '0.05' }}
+          </div>
         </div>
       {% else %}
-        <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Sfeerbeeld placeholder">
-          <span>Placeholder: Sfeerbeeld (optioneel)</span>
+        <div class="ga-media-frame ga-partnership-image ga-motion-scale" data-reveal>
+          <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Sfeerbeeld placeholder">
+            <span>Placeholder: Sfeerbeeld (bar / serve moment)</span>
+          </div>
         </div>
       {% endif %}
     </div>
   </section>
 
-  <section id="contact" class="ga-section reveal" data-reveal>
+  <section id="contact" class="ga-section ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-contact-grid">
       <div>
         <h2>Contact</h2>
@@ -223,7 +235,7 @@
           <button class="ga-btn ga-btn-primary" type="submit">Verzenden</button>
         {% endform %}
       </div>
-      <aside class="ga-contact-meta" aria-label="Contactgegevens">
+      <aside class="ga-contact-meta ga-motion-slide-right" data-reveal aria-label="Contactgegevens">
         <a href="mailto:info@gingeralc.nl">info@gingeralc.nl</a>
         <a href="mailto:pepijn@gingeralc.nl">pepijn@gingeralc.nl (partnerships)</a>
         <a href="tel:+31644766252">+31 6 44766252</a>
@@ -231,7 +243,7 @@
     </div>
   </section>
 
-  <footer class="ga-footer reveal" data-reveal>
+  <footer class="ga-footer ga-motion-fade-up" data-reveal>
     <div class="ga-container ga-footer-inner">
       <p>&copy; {{ 'now' | date: '%Y' }} Ginger.ALC</p>
       <div class="ga-footer-links">

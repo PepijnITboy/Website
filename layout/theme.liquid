@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+<html lang="{{ request.locale.iso_code }}" class="no-js">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,10 +13,13 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   </head>
-  <body>
+  <body class="ga-theme">
     <a class="skip-link" href="#MainContent">Ga direct naar content</a>
     <main id="MainContent" role="main">
       {{ content_for_layout }}
     </main>
+    <script>
+      document.documentElement.classList.remove('no-js');
+    </script>
   </body>
 </html>
