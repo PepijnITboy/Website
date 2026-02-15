@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "og_image",
+        "label": "OG image (social share)"
+      }
+    ]
+  }
+]

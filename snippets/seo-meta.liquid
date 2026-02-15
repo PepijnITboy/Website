@@ -1,0 +1,29 @@
+{%- liquid
+  assign seo_title = page_title | default: shop.name
+  if request.page_type == 'index'
+    assign seo_title = 'Ginger.ALC | Gembershot met subtiele kick'
+  endif
+
+  assign seo_description = page_description
+  if request.page_type == 'index'
+    assign seo_description = 'Ginger.ALC: premium gembershot met subtiele kick. Bestel online, ontdek verkooppunten in Amsterdam en neem contact op voor partnerships.'
+  endif
+
+  assign og_image_url = blank
+  if settings.og_image != blank
+    assign og_image_url = settings.og_image | image_url: width: 1200
+  elsif settings.hero_image != blank
+    assign og_image_url = settings.hero_image | image_url: width: 1200
+  endif
+-%}
+<title>{{ seo_title | escape }}</title>
+<meta name="description" content="{{ seo_description | strip_html | escape }}">
+
+<meta property="og:site_name" content="{{ shop.name | escape }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ seo_title | escape }}">
+<meta property="og:description" content="{{ seo_description | strip_html | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+{%- if og_image_url != blank -%}
+  <meta property="og:image" content="https:{{ og_image_url }}">
+{%- endif -%}

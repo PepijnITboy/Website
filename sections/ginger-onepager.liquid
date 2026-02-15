@@ -1,0 +1,316 @@
+<section class="ga-page" aria-label="Ginger ALC one pager">
+  <header class="ga-topbar reveal" data-reveal>
+    <div class="ga-container ga-topbar-inner">
+      <a class="ga-brand" href="#top" aria-label="Naar boven">Ginger.ALC</a>
+      <nav class="ga-nav" aria-label="Hoofdnavigatie">
+        <a href="#product">Product</a>
+        <a href="#recepten">Recepten</a>
+        <a href="#waar-te-koop">Waar te koop</a>
+        <a href="#bestellen">Bestellen</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="top"></div>
+
+  <section class="ga-hero ga-section reveal" data-reveal>
+    <div class="ga-container ga-hero-grid">
+      <div class="ga-hero-copy">
+        <h1>Ginger.ALC</h1>
+        <p class="ga-subheadline">De gembershot met een subtiele, speelse kick.</p>
+        <p class="ga-tagline">{{ section.settings.hero_tagline | escape }}</p>
+        <p class="ga-microcopy">Vrijdag &amp; zaterdag bezorgd in Amsterdam • De hele week per post door NL.</p>
+        <div class="ga-cta-row">
+          <a class="ga-btn ga-btn-primary" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bestel</a>
+          <a class="ga-btn ga-btn-secondary" href="#waar-te-koop">Waar te koop</a>
+          <a class="ga-btn ga-btn-tertiary" href="#partnerships">Partnerships</a>
+        </div>
+      </div>
+      <div class="ga-hero-media">
+        {% if section.settings.hero_image != blank %}
+          {{ section.settings.hero_image | image_url: width: 1600 | image_tag: class: 'ga-media', loading: 'eager', alt: section.settings.hero_image_alt }}
+        {% else %}
+          <div class="ga-placeholder" role="img" aria-label="Hero productfoto placeholder">
+            <span>Placeholder: Hero productfoto</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="ga-section reveal" data-reveal>
+    <div class="ga-container">
+      <h2>Waarom Ginger.ALC</h2>
+      <div class="ga-card-grid ga-card-grid-4">
+        <article class="ga-card"><p>Handgemaakt in Nederland</p></article>
+        <article class="ga-card"><p>Echte, versgeperste fruitsappen</p></article>
+        <article class="ga-card"><p>Pure gemberkick — fris en scherp</p></article>
+        <article class="ga-card"><p>Subtiel alcoholisch, fruitige afdronk</p></article>
+      </div>
+      <p class="ga-tip">Drink 'm ijskoud.</p>
+    </div>
+  </section>
+
+  <section class="ga-section reveal" data-reveal>
+    <div class="ga-container ga-split">
+      <div>
+        <h2>Het product</h2>
+        <p class="ga-story">
+          Met de hand vervaardigd in Nederland van echte, versgeperste fruitsappen.
+          De kick komt van frisse gember: puur, scherp en verfrissend.
+          Met een subtiel vleugje alcohol voor balans en een fruitige afdronk.
+          Zonder kunstmatige aroma's.
+        </p>
+      </div>
+      <div>
+        {% if section.settings.detail_image != blank %}
+          {{ section.settings.detail_image | image_url: width: 1200 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.detail_image_alt }}
+        {% else %}
+          <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Detailfoto placeholder">
+            <span>Placeholder: Detailfoto</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section id="recepten" class="ga-section reveal" data-reveal>
+    <div class="ga-container">
+      <h2>Recepten</h2>
+      <p class="ga-section-intro">Twee manieren om 'm te drinken.</p>
+      <div class="ga-card-grid ga-card-grid-2">
+        <article class="ga-card ga-card-recipe">
+          <h3>Ginger.ALC Spritz</h3>
+          <ul>
+            <li>90 ml prosecco</li>
+            <li>60-70 ml Ginger.ALC (naar smaak)</li>
+            <li>30 ml bruiswater</li>
+          </ul>
+          <p>Fris, kruidig en net anders.</p>
+        </article>
+        <article class="ga-card ga-card-recipe">
+          <h3>Ginger.ALC Shot</h3>
+          <p>Puur, ijskoud — of als start voor nieuwe combinaties.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="waar-te-koop" class="ga-section reveal" data-reveal>
+    <div class="ga-container">
+      <h2>Waar te koop</h2>
+      <div class="ga-card-grid ga-card-grid-3">
+        <article class="ga-card ga-card-location">
+          <h3>Cafe de Sluyswacht</h3>
+          <p>Jodenbreestraat 1, Amsterdam</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+de+Sluyswacht+Jodenbreestraat+1+Amsterdam" target="_blank" rel="noopener">Route</a>
+        </article>
+        <article class="ga-card ga-card-location">
+          <h3>Cafe Arie</h3>
+          <p>Ferdinand Bolstraat 24HS, Amsterdam</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Arie+Ferdinand+Bolstraat+24HS+Amsterdam" target="_blank" rel="noopener">Route</a>
+        </article>
+        <article class="ga-card ga-card-location">
+          <h3>Bar DO</h3>
+          <p>Vijzelgracht 35, Amsterdam</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Bar+DO+Vijzelgracht+35+Amsterdam" target="_blank" rel="noopener">Route</a>
+        </article>
+        <article class="ga-card ga-card-location">
+          <h3>Sarphaat</h3>
+          <p>Ceintuurbaan 157, Amsterdam</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Sarphaat+Ceintuurbaan+157+Amsterdam" target="_blank" rel="noopener">Route</a>
+        </article>
+        <article class="ga-card ga-card-location">
+          <h3>Cafe de Schinkelhaven</h3>
+          <p>Amstelveenseweg 126, Amsterdam</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+de+Schinkelhaven+Amstelveenseweg+126+Amsterdam" target="_blank" rel="noopener">Route</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="bestellen" class="ga-section reveal" data-reveal>
+    <div class="ga-container">
+      <h2>Bestellen</h2>
+      <div class="ga-card-grid ga-card-grid-4">
+        <article class="ga-card ga-card-package">
+          <h3>Starter Pack</h3>
+          <p>Perfect om kennis te maken met Ginger.ALC.</p>
+          <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
+        </article>
+        <article class="ga-card ga-card-package">
+          <h3>Weekend Pack</h3>
+          <p>Voor borrelmomenten met meerdere glazen.</p>
+          <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
+        </article>
+        <article class="ga-card ga-card-package">
+          <h3>House Pack</h3>
+          <p>Steady voorraad voor thuis of op werk.</p>
+          <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
+        </article>
+        <article class="ga-card ga-card-package">
+          <h3>Gift Pack</h3>
+          <p>Strakke selectie om te geven of te delen.</p>
+          <a class="ga-inline-cta" href="https://gingeralc.nl/collections/bestellen" target="_blank" rel="noopener">Bekijk in shop</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="partnerships" class="ga-section reveal" data-reveal>
+    <div class="ga-container ga-partnerships">
+      <h2>Partnerships</h2>
+      <p>
+        Ginger.ALC werkt met partners die zoeken naar een eigen signatuur achter de bar of in de shop.
+        We houden afstemming kort, levering strak en samenwerking persoonlijk.
+      </p>
+      <ul>
+        <li>Voor bars, cafes en concept stores</li>
+        <li>Snelle afstemming en levering</li>
+        <li>Proef/sample op aanvraag</li>
+      </ul>
+      <div class="ga-cta-row">
+        <a class="ga-btn ga-btn-primary" href="#contact">Neem contact op</a>
+        <a class="ga-btn ga-btn-secondary" href="mailto:pepijn@gingeralc.nl">Mail partnerships</a>
+      </div>
+      {% if section.settings.ambient_image != blank %}
+        <div class="ga-partnership-image">
+          {{ section.settings.ambient_image | image_url: width: 1200 | image_tag: class: 'ga-media', loading: 'lazy', alt: section.settings.ambient_image_alt }}
+        </div>
+      {% else %}
+        <div class="ga-placeholder ga-placeholder-small" role="img" aria-label="Sfeerbeeld placeholder">
+          <span>Placeholder: Sfeerbeeld (optioneel)</span>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section id="contact" class="ga-section reveal" data-reveal>
+    <div class="ga-container ga-contact-grid">
+      <div>
+        <h2>Contact</h2>
+        {% form 'contact', class: 'ga-contact-form' %}
+          {% if form.posted_successfully? %}
+            <p class="ga-form-success" tabindex="-1">Bericht verzonden. We komen snel bij je terug.</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="ga-form-errors" role="alert">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <label for="ContactForm-name">Naam</label>
+          <input id="ContactForm-name" type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}">
+
+          <label for="ContactForm-email">E-mail</label>
+          <input
+            id="ContactForm-email"
+            type="email"
+            name="contact[email]"
+            autocomplete="email"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{{ form.email }}"
+            required
+          >
+
+          <label for="ContactForm-body">Bericht</label>
+          <textarea id="ContactForm-body" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
+
+          <button class="ga-btn ga-btn-primary" type="submit">Verzenden</button>
+        {% endform %}
+      </div>
+      <aside class="ga-contact-meta" aria-label="Contactgegevens">
+        <a href="mailto:info@gingeralc.nl">info@gingeralc.nl</a>
+        <a href="mailto:pepijn@gingeralc.nl">pepijn@gingeralc.nl (partnerships)</a>
+        <a href="tel:+31644766252">+31 6 44766252</a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="ga-footer reveal" data-reveal>
+    <div class="ga-container ga-footer-inner">
+      <p>&copy; {{ 'now' | date: '%Y' }} Ginger.ALC</p>
+      <div class="ga-footer-links">
+        <a href="{{ section.settings.privacy_url }}">Privacy</a>
+        <a href="{{ section.settings.terms_url }}">Voorwaarden</a>
+      </div>
+      <p class="ga-disclaimer">18+ Geniet, maar drink met mate.</p>
+      <a class="ga-instagram" href="{{ section.settings.instagram_url }}" aria-label="Instagram Ginger.ALC" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3Z"></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
+</section>
+
+{% schema %}
+{
+  "name": "Ginger.ALC One Pager",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_tagline",
+      "label": "Hero mini tagline",
+      "default": "In balans, met gember."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero productfoto (placeholder vervangen)"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt",
+      "label": "Hero image alt tekst",
+      "default": "Ginger.ALC productfoto"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image",
+      "label": "Detail productfoto (placeholder vervangen)"
+    },
+    {
+      "type": "text",
+      "id": "detail_image_alt",
+      "label": "Detail image alt tekst",
+      "default": "Ginger.ALC detailfoto"
+    },
+    {
+      "type": "image_picker",
+      "id": "ambient_image",
+      "label": "Sfeerbeeld optioneel (placeholder vervangen)"
+    },
+    {
+      "type": "text",
+      "id": "ambient_image_alt",
+      "label": "Sfeerbeeld alt tekst",
+      "default": "Ginger.ALC sfeerbeeld"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "privacy_url",
+      "label": "Privacy URL"
+    },
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "Voorwaarden URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ginger.ALC One Pager"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "ginger-onepager",
+      "settings": {
+        "hero_tagline": "In balans, met gember.",
+        "hero_image": "",
+        "hero_image_alt": "Ginger.ALC productfoto",
+        "detail_image": "",
+        "detail_image_alt": "Ginger.ALC detailfoto",
+        "ambient_image": "",
+        "ambient_image_alt": "Ginger.ALC sfeerbeeld",
+        "instagram_url": "https://www.instagram.com/ginger.alc?igsh=MXJ2azQyaWd0N29nOQ==",
+        "privacy_url": "/policies/privacy-policy",
+        "terms_url": "/policies/terms-of-service"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

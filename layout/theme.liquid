@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#faf8f4">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {% render 'seo-meta' %}
+
+    {{ content_for_header }}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#MainContent">Ga direct naar content</a>
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>
